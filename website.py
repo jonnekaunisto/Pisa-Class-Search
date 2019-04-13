@@ -20,9 +20,6 @@ def parseInputs():
 	'binds[:subject]': "CMPE"
 	})
 
-
-
-
 url = "https://pisa.ucsc.edu/class_search/index.php"
 response = requests.get(url)
 status()
