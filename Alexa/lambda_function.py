@@ -51,12 +51,12 @@ def get_welcome_response():
 
     session_attributes = {}
     card_title = "Welcome"
-    speech_output = "Welcome to the UCSC Bus Bot. " \
-                    "Please state the bus stop id or location to get started "
+    speech_output = "Welcome to UCSC Class Search " \
+                    "Please state the class you want to search"
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
-    reprompt_text = "Please tell me your bus stop by saying, " \
-                    "Bus Stop Bay and Meder"
+    reprompt_text = "Please state the class you want to search, " \
+                    "Such as CMPE 110"
     should_end_session = False
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
@@ -64,7 +64,7 @@ def get_welcome_response():
 
 def handle_session_end_request():
     card_title = "Session Ended"
-    speech_output = "Thank you for trying the UCSC Bus Bot. " \
+    speech_output = "Thank you for trying the UCSC Class Search" \
                     "Have a nice day! "
     # Setting this to true ends the session and exits the skill.
     should_end_session = True
@@ -126,17 +126,6 @@ def on_session_started(session_started_request, session):
     print("on_session_started requestId=" + session_started_request['requestId']
           + ", sessionId=" + session['sessionId'])
 
-
-def on_launch(launch_request, session):
-    """ Called when the user launches the skill without specifying what they
-    want
-    """
-
-    print("on_launch requestId=" + launch_request['requestId'] +
-          ", sessionId=" + session['sessionId'])
-    # Dispatch to your skill's launch
-    return get_welcome_response()
-
 def get_stop_info_url(stop):
     return "https://www.scmtd.com/en/routes/schedule-by-stop/" + str(stop)
 
@@ -172,7 +161,24 @@ def get_stop_info_by_id(intent):
         return get_next_buss_by_id(buss_stop_id)
     else:
         raise ValueError("Invalid indent")
-    
+
+def get_class_info(class_name):
+    speech_output = "I am not implemented yet"
+    reprompt_text = "I am not implemented yet"
+    return build_response({}, build_speechlet_response(
+        "none", speech_output, reprompt_text, False))
+        
+#alexa functions
+
+def on_launch(launch_request, session):
+    """ Called when the user launches the skill without specifying what they
+    want
+    """
+
+    print("on_launch requestId=" + launch_request['requestId'] +
+          ", sessionId=" + session['sessionId'])
+    # Dispatch to your skill's launch
+    return get_welcome_response()
 
 def on_intent(intent_request, session):
     """ Called when the user specifies an intent for this skill """
@@ -184,13 +190,8 @@ def on_intent(intent_request, session):
     intent_name = intent_request['intent']['name']
 
     # Dispatch to your skill's intent handlers
-    if intent_name == "getStopID":
-        return get_stop_info_by_id(intent)
-    elif intent_name == "getStopByName":
-        return set_bustop_from_session(intent, session)
-    if intent_name == "getstopcrown":
-        return get_next_buss_by_id(1617)
-    
+    if intent_name == "getClass":
+        pass
     else:
         raise ValueError("Invalid indent")
 
