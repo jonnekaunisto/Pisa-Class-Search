@@ -1,4 +1,4 @@
-majors = { 
+majors = {
 "UND": "Undeclared",
 "UNON": "Non Degree",
 "ANTH": "Anthropology",
@@ -63,3 +63,15 @@ majors = {
 "XEMA": "Economics/mathematics",
 "XLPT": "Latin American And Latino Studies/politics",
 "XLSY": "Latin American And Latino Studies/sociology" }
+
+result = {"values": []}
+
+for abbrev, major in majors.items():
+    synonyms = []
+    synonyms.append(major)
+    synonyms.append(abbrev.lower())
+    result['values'].append({'name':{'value':abbrev, 'synonyms':synonyms}})
+
+f = open("result.txt", "w")
+f.write(str(result).replace("'", "\""))
+f.close()
