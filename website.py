@@ -1,7 +1,7 @@
 import os
 import requests
 
-def parseInputs(response):
+def getClassFile(url):
 	response = requests.post(url,allow_redirects=False, data={
 	'action': "detail",
 	'class_data[:CLASS_NBR]': "63107",
@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
 	if response.status_code == 200:
 		print("200 OK")
-		contents = parseInputs(response)
+		contents = parseInputs(url)
 		file = open("index.html","w")
 		file.write(str(contents))
 
