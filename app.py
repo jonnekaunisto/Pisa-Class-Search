@@ -6,7 +6,7 @@ from flask import Response
 app = Flask(__name__)
 
 def html(content):  # Also allows you to set your own <head></head> etc
-   return '<html><head>SlugSearch Results</head><br /><body>' + content + '</body></html>'
+   return '<html><br /><body>' + content + '</body></html>'
 
 @app.route('/')
 def index():
@@ -16,8 +16,11 @@ def index():
 def search(className):
     res = classdic[className]
     buildStr = ""
+    buildStr += '<h1>' + res['fullName'] + '</h1><p className="body">'
     for key, value in res.items():
-        buildStr += key + ': ' + str(value) + '<br />'
+        if key != 'fullName':
+            buildStr += key + ': ' + str(value) + '<br />'
+    buildStr += '<p>'
     return html(buildStr)
 
 if __name__ == '__main__': #Create class dictionary
