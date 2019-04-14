@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <title>SlugSearch</title>
+</head>
+
+<body>
+    <div class="search-box">
+        <input type="text" name="" id="text" class="search-txt" placeholder="Type to search" />
+        <a class="search-btn" id="searchButton" href="#">
+            <i class="fas fa-search"></i>
+        </a>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        document.getElementById("searchButton").onclick = function () { search() };
+
+        function search() {
+            const url = "localhost:8081/search/" + document.getElementById("text").value;
+            $.get(url, function (data, status) {
+                console.log('${data}')
+            })
+        }
+    </script>
+
+</body>
+
+</html>

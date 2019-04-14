@@ -1,16 +1,18 @@
 import json
+from flask_cors import CORS
 from flask import Flask 
 from flask import request
 from flask import Response
 
 app = Flask(__name__)
+CORS(app)
 
 def html(content):  # Also allows you to set your own <head></head> etc
    return '<html><br /><body>' + content + '</body></html>'
 
 @app.route('/')
 def index():
-    return('Welcome to SlugSearch!')
+    return open('./Website/index.html').read()
 
 @app.route('/search/<string:className>')
 def search(className):
