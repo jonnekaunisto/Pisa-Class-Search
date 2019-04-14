@@ -1,4 +1,5 @@
 import requests
+import json
 
 def getClassFile(classnum, term):
 	url = "https://pisa.ucsc.edu/class_search/index.php"
@@ -26,6 +27,7 @@ if __name__ == '__main__':
 		contents = getClassFile("63107", "2192")
 		file = open("index.html","w")
 		file.write(str(contents))
+		print(contents)
 
 	else:
 		printf("Bad Request")
