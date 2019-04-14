@@ -1,0 +1,101 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "class application",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "mommy make out day",
+                        "how do you use this",
+                        "can you help me",
+                        "help me",
+                        "I don't know how to use this application",
+                        "I need help",
+                        "help"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "hi",
+                    "slots": [],
+                    "samples": [
+                        "howdy",
+                        "hey",
+                        "hi",
+                        "hello"
+                    ]
+                },
+                {
+                    "name": "MyColorIsIntent",
+                    "slots": [
+                        {
+                            "name": "Color",
+                            "type": "AMAZON.Color"
+                        }
+                    ],
+                    "samples": [
+                        "my color is {Color}",
+                        "my color"
+                    ]
+                },
+                {
+                    "name": "cmpsoneonetwo",
+                    "slots": [],
+                    "samples": [
+                        "information about cmps one one two"
+                    ]
+                },
+                {
+                    "name": "classInfo",
+                    "slots": [
+                        {
+                            "name": "class",
+                            "type": "class"
+                        }
+                    ],
+                    "samples": [
+                        "see data about {class}"
+                    ]
+                },
+                {
+                    "name": "chinesethree",
+                    "slots": [],
+                    "samples": [
+                        "get me Chinese three",
+                        "chinese three",
+                        "information about chinese three"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "class",
+                    "values": [
+                        {
+                            "id": "63107",
+                            "name": {
+                                "value": "cmpe 110"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
