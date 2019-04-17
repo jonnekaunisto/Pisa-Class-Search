@@ -162,7 +162,8 @@ def get_stop_info_by_id(intent):
     else:
         raise ValueError("Invalid indent")
 
-def get_class_info(class_name):
+def get_class_info(intent):
+    print(intent['slots']['getStopID']['id'])
     speech_output = "I am not implemented yet"
     reprompt_text = "I am not implemented yet"
     return build_response({}, build_speechlet_response(
@@ -191,7 +192,7 @@ def on_intent(intent_request, session):
 
     # Dispatch to your skill's intent handlers
     if intent_name == "getClass":
-        pass
+        get_class_info()
     else:
         raise ValueError("Invalid indent")
 

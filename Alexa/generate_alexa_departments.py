@@ -70,7 +70,7 @@ for abbrev, major in majors.items():
     synonyms = []
     synonyms.append(major)
     synonyms.append(abbrev.lower())
-    result['values'].append({'name':{'value':abbrev, 'synonyms':synonyms}})
+    result['values'].append({'id': abbrev, 'name':{'value':major, 'synonyms':synonyms}})
 
 f = open("result.txt", "w")
 f.write(str(result).replace("'", "\""))

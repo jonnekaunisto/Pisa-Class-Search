@@ -24,7 +24,7 @@ class UCSCClass:
         self.enrolled = rightmatches[3][:-7]
         self.waitlistCap = rightmatches[4][:-7]
         self.waitlistTotal = rightmatches[5][:-7]
-        print(self.career, self.grading,self.waitlistCap)
+
 class Section:
     req = requests.Request("POST", "https://pisa.ucsc.edu/class_search/index.php")
 
